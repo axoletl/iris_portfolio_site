@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-dark">
+
+<head>
+    <title>Iris Li</title>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script> -->
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8"/>
+    <meta name="description" content="Hi, I'm Iris Li!
+    I'm a digital and print designer making publications, interactive experiences and things that move.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+</head>
+
+<body class="debug preload" id="preload">
+
+    <script>
+        // preload so animations dont play on page load
+        //im not actually sure any of this works
+        var bodyElement = document.getElementById("preload");
+
+        function loadCheck() {
+            bodyElement.classList.remove("preload");
+            // console.log("page loaded!");
+        }
+
+        loadCheck();
+
+    </script>
+
+    <div class="stickyhead debug" id="header">
+        <!-- <img class="logohead debug" src="assets/logo.svg" onclick="topFunction()" alt="Back to Top"> -->
+        <svg class="logohead debug" viewBox="0 0 449 252" onclick="topFunction(event)">
+            <use href="#logosvg"></use>
+        </svg>
+        <div class="smFlex debug">
+            <div class="smIcon debug">
+                <!-- <img src="assets/twitter.svg" alt="Twitter!"> -->
+                <svg viewBox="0 0 396 396">
+                    <use class="debug" href="#twticon"></use>
+                </svg>
+                <a href="https://twitter.com/irisviscom"><span class="smLink"></span></a>
+                <div class="smpopcont debug">
+                    <div class="smpopup debug">
+                        <p class="p2">@irisviscom</p>
+                    </div>
+                </div>
+            </div>
+            <div class="smIcon debug">
+                <!-- <img src="assets/instagram.svg" alt="Instagram!!"> -->
+                <svg viewBox="0 0 396 396">
+                    <use class="debug" href="#instaicon"></use>
+                </svg>
+                <a href="https://www.instagram.com/irisdsn/"><span class="smLink"></span></a>
+                <div class="smpopcont debug">
+                    <div class="smpopup debug">
+                        <p class="p2">@irisdsn</p>
+                    </div>
+                </div>
+            </div>
+            <div class="smIcon debug" id="copybutton" onFocusout="unFocus()">
+                <!-- <img src="assets/email.svg" alt="Email!!!"> -->
+                <svg viewBox="0 0 396 396">
+                    <use class="debug" href="#emailicon"></use>
+                </svg>
+                <!-- <a href="mailto: lightli847@gmail.com"><span class="smLink"></span></a> -->
+                <div class="smpopcont debug">
+                    <div class="smpopup debug">
+                        <div id="copybutton" class="copybutton debug">
+                            <svg id="copyiconicon" class="debug" viewBox="0 0 24 24">
+                                <use href=#copyicon></use>
+                            </svg>
+                            <!-- <p class="p2" id="copytext" contenteditable>lightli847@gmail.com</p> -->
+                            <input id="copytext" class="p3" type="text" value="lightli847@gmail.com">
+                            <!-- <span class="p2" id="copytext" contenteditable>lightli847@gmail.com</span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- causing issues with overlay for some reason -->
+        <div class="topshadow debug">
+        </div>
+
+    </div>
+
+    <script>
+        //copy email//
+        var buttonObject = document.getElementById("copybutton");
+        var textObject = document.getElementById("copytext");
+        var iconObject = document.getElementById("copyiconicon");
+        // var buttonObjects = document.querySelectorAll("#copybutton");
+        // var textObjects = document.querySelectorAll("#copytext");
+        // var iconObjects = document.querySelectorAll("#copyicon");
+        var time = 0;
+        // var timeFunc = setInterval(timerCount, 100);
+
+        buttonObject.onclick = function () {
+            textObject.select();
+            document.execCommand('copy');
+            // console.log("hi");
+            iconObject.innerHTML = "<use href=#tickicon></use>"
+        }
+
+        function unFocus() {
+            iconObject.innerHTML = "<use href=#copyicon></use>"
+            // console.log("out");
+        }
+
+    </script>
+
+    <script>
+
+        //sticky header//
+
+        var headerElement = document.getElementById("header");
+        var headerToggle = 0;
+
+        function headerCheck() {
+            var y = window.pageYOffset;
+            if (y >= 0.4 * window.innerHeight) {
+                headerElement.classList.add("outOfView");
+                headerElement.classList.remove("outOfViewReset");
+                headerToggle = 1;
+                //console.log("out of view");
+            } else {
+                if (headerElement.classList.contains("outOfView")) {
+                    headerElement.classList.add("outOfViewReset");
+                }
+                headerElement.classList.remove("outOfView");
+                headerToggle = 0;
+            }
+            // console.log(window.pageYOffset + "/" + window.innerHeight)
+        }
+        setInterval(headerCheck, 100);
+
+        //scroll to top//
+
+        function topFunction(event) {
+            //document.body.scrollTop = 0; // For Safari
+            //document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            iframeUnfocus(event);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+    </script>
+
+    <div class="bottomshadow debug">
+    </div>
+
+    <script>
+        //SCRIPT FOR FUNNY LOGO INTERACTION
+
+        var logo;
+        var port;
+        var logoHeight;
+
+        function logoSwap(id) {
+            // logo = document.getElementById(id);
+            // logoHeight = 0.82 * logo.clientHeight;
+            // console.log(logoHeight);
+            // logo.setAttribute("style", "transform:scale(0%);");
+            // // console.log("got " + id);
+
+            // //this is over the top for one element but i wanna do it
+            // var siblings = logo.parentNode.children;
+            // for (var i = siblings.length; i--;) {
+            //     if (siblings[i].id == "port1") {
+            //         port = siblings[i];
+            //         break;
+            //     }
+            // }
+
+            // // console.log("got " + logo.id);
+
+            // // port.style.height = logoHeight + "px";
+            // port.setAttribute("style", "height: " + logoHeight + "px; transform:scale(100%);");
+        }
+
+        function portSwap() {
+            // logo.removeAttribute("style");
+            // port.setAttribute("style", "height: " + logoHeight + "px; transform:scale(0%);");
+        }
+
+    </script>
+
+
+    <div class="wrapper">
+
+        <div class="bgscroll debug">
+            <!-- <img src="assets/bg_scroll.svg"> -->
+            <svg viewBox="0 0 3713 565">
+                <g transform="matrix(1,0,0,1,-5502.96,-280.278)">
+                    <g transform="matrix(1.00176,0,0,1.00176,2572.36,-4582.12)">
+                        <path
+                            d="M3219.69,4899.07L3095.8,5304.3C3092.58,5314.81 3082.88,5321.99 3071.89,5321.99C3071.89,5321.99 2995.45,5321.99 2995.45,5321.99C2973.25,5321.99 2952.38,5311.47 2939.18,5293.63C2925.97,5275.79 2922.01,5252.75 2928.5,5231.53L3041.81,4860.92C3042.9,4857.34 3048.63,4853.84 3052.37,4853.84C3077.64,4853.84 3139.85,4853.84 3186.22,4853.84C3197.31,4853.84 3207.75,4859.1 3214.35,4868.02C3220.95,4876.94 3222.93,4888.46 3219.69,4899.07Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,2572.36,-4582.12)">
+                        <path
+                            d="M3370.36,5094.64C3379.35,5065.2 3406.52,5045.1 3437.3,5045.1L3527.74,5045.1C3538.84,5045.1 3549.28,5050.36 3555.88,5059.28C3562.48,5068.2 3564.46,5079.72 3561.21,5090.33C3541.72,5154.08 3509.5,5259.48 3495.8,5304.3C3492.58,5314.81 3482.88,5321.99 3471.89,5321.99C3432.76,5321.99 3352.08,5321.99 3314.36,5321.99C3311.19,5321.99 3308.21,5320.49 3306.32,5317.94C3304.43,5315.39 3303.87,5312.1 3304.8,5309.07C3318.07,5265.66 3350.55,5159.41 3370.36,5094.64Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,2572.36,-4582.12)">
+                        <path
+                            d="M3570.36,5094.64C3579.35,5065.2 3599.14,5000.48 3602.39,4989.87C3610.58,4963.06 3620.57,4930.38 3628.83,4903.37C3637.83,4873.94 3664.99,4853.84 3695.77,4853.84L3920,4853.84C3923.17,4853.84 3926.16,4855.34 3928.04,4857.89C3929.93,4860.44 3930.49,4863.73 3929.57,4866.76C3929.57,4866.76 3922.48,4889.94 3922.48,4889.94C3913.48,4919.37 3893.7,4984.09 3890.45,4994.7C3874.3,5047.54 3848.61,5131.55 3827.17,5201.7C3805.31,5273.17 3739.34,5321.99 3664.6,5321.99C3607.03,5321.99 3545.36,5321.99 3514.36,5321.99C3511.19,5321.99 3508.21,5320.49 3506.32,5317.94C3504.43,5315.39 3503.87,5312.1 3504.8,5309.07C3518.07,5265.66 3550.55,5159.41 3570.36,5094.64Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,2572.36,-4582.12)">
+                        <path
+                            d="M3415.57,4942.47C3412.78,4950.48 3403.64,4950.96 3405.18,4946.29L3406.26,4943.01C3406.26,4943.01 3419.69,4899.07 3419.69,4899.07C3422.93,4888.46 3420.95,4876.94 3414.35,4868.02C3407.75,4859.1 3397.31,4853.84 3386.22,4853.84C3358.19,4853.84 3324.01,4853.84 3295.77,4853.84C3264.99,4853.84 3237.83,4873.94 3228.83,4903.37L3075.56,5404.7C3074.63,5407.73 3075.2,5411.02 3077.08,5413.57C3078.97,5416.12 3081.95,5417.62 3085.12,5417.62C3113.99,5417.62 3168.04,5417.62 3209.35,5417.62C3240.13,5417.62 3267.3,5397.52 3276.3,5368.09C3298.6,5295.14 3338.49,5164.66 3360.79,5091.71C3371.08,5058.07 3402.12,5035.1 3437.3,5035.1L3526.3,5035.1C3557.08,5035.1 3584.24,5015 3593.24,4985.57C3601.5,4958.57 3611.49,4925.88 3619.69,4899.07C3622.93,4888.46 3620.95,4876.94 3614.35,4868.02C3607.75,4859.1 3597.31,4853.84 3586.22,4853.84L3540.27,4853.84C3483.05,4853.84 3433.23,4891.73 3415.57,4942.47Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,3474.27,-4582.12)">
+                        <path
+                            d="M3219.69,4899.07L3095.8,5304.3C3092.58,5314.81 3082.88,5321.99 3071.89,5321.99C3071.89,5321.99 2995.45,5321.99 2995.45,5321.99C2973.25,5321.99 2952.38,5311.47 2939.18,5293.63C2925.97,5275.79 2922.01,5252.75 2928.5,5231.53L3041.81,4860.92C3042.9,4857.34 3048.63,4853.84 3052.37,4853.84C3077.64,4853.84 3139.85,4853.84 3186.22,4853.84C3197.31,4853.84 3207.75,4859.1 3214.35,4868.02C3220.95,4876.94 3222.93,4888.46 3219.69,4899.07Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,3474.27,-4582.12)">
+                        <path
+                            d="M3370.36,5094.64C3379.35,5065.2 3406.52,5045.1 3437.3,5045.1L3527.74,5045.1C3538.84,5045.1 3549.28,5050.36 3555.88,5059.28C3562.48,5068.2 3564.46,5079.72 3561.21,5090.33C3541.72,5154.08 3509.5,5259.48 3495.8,5304.3C3492.58,5314.81 3482.88,5321.99 3471.89,5321.99C3432.76,5321.99 3352.08,5321.99 3314.36,5321.99C3311.19,5321.99 3308.21,5320.49 3306.32,5317.94C3304.43,5315.39 3303.87,5312.1 3304.8,5309.07C3318.07,5265.66 3350.55,5159.41 3370.36,5094.64Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,3474.27,-4582.12)">
+                        <path
+                            d="M3570.36,5094.64C3579.35,5065.2 3599.14,5000.48 3602.39,4989.87C3610.58,4963.06 3620.57,4930.38 3628.83,4903.37C3637.83,4873.94 3664.99,4853.84 3695.77,4853.84L3920,4853.84C3923.17,4853.84 3926.16,4855.34 3928.04,4857.89C3929.93,4860.44 3930.49,4863.73 3929.57,4866.76C3929.57,4866.76 3922.48,4889.94 3922.48,4889.94C3913.48,4919.37 3893.7,4984.09 3890.45,4994.7C3874.3,5047.54 3848.61,5131.55 3827.17,5201.7C3805.31,5273.17 3739.34,5321.99 3664.6,5321.99C3607.03,5321.99 3545.36,5321.99 3514.36,5321.99C3511.19,5321.99 3508.21,5320.49 3506.32,5317.94C3504.43,5315.39 3503.87,5312.1 3504.8,5309.07C3518.07,5265.66 3550.55,5159.41 3570.36,5094.64Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,3474.27,-4582.12)">
+                        <path
+                            d="M3415.57,4942.47C3412.78,4950.48 3403.64,4950.96 3405.18,4946.29L3406.26,4943.01C3406.26,4943.01 3419.69,4899.07 3419.69,4899.07C3422.93,4888.46 3420.95,4876.94 3414.35,4868.02C3407.75,4859.1 3397.31,4853.84 3386.22,4853.84C3358.19,4853.84 3324.01,4853.84 3295.77,4853.84C3264.99,4853.84 3237.83,4873.94 3228.83,4903.37L3075.56,5404.7C3074.63,5407.73 3075.2,5411.02 3077.08,5413.57C3078.97,5416.12 3081.95,5417.62 3085.12,5417.62C3113.99,5417.62 3168.04,5417.62 3209.35,5417.62C3240.13,5417.62 3267.3,5397.52 3276.3,5368.09C3298.6,5295.14 3338.49,5164.66 3360.79,5091.71C3371.08,5058.07 3402.12,5035.1 3437.3,5035.1L3526.3,5035.1C3557.08,5035.1 3584.24,5015 3593.24,4985.57C3601.5,4958.57 3611.49,4925.88 3619.69,4899.07C3622.93,4888.46 3620.95,4876.94 3614.35,4868.02C3607.75,4859.1 3597.31,4853.84 3586.22,4853.84L3540.27,4853.84C3483.05,4853.84 3433.23,4891.73 3415.57,4942.47Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,4376.17,-4582.12)">
+                        <path
+                            d="M3219.69,4899.07L3095.8,5304.3C3092.58,5314.81 3082.88,5321.99 3071.89,5321.99C3071.89,5321.99 2995.45,5321.99 2995.45,5321.99C2973.25,5321.99 2952.38,5311.47 2939.18,5293.63C2925.97,5275.79 2922.01,5252.75 2928.5,5231.53L3041.81,4860.92C3042.9,4857.34 3048.63,4853.84 3052.37,4853.84C3077.64,4853.84 3139.85,4853.84 3186.22,4853.84C3197.31,4853.84 3207.75,4859.1 3214.35,4868.02C3220.95,4876.94 3222.93,4888.46 3219.69,4899.07Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,4376.17,-4582.12)">
+                        <path
+                            d="M3370.36,5094.64C3379.35,5065.2 3406.52,5045.1 3437.3,5045.1L3527.74,5045.1C3538.84,5045.1 3549.28,5050.36 3555.88,5059.28C3562.48,5068.2 3564.46,5079.72 3561.21,5090.33C3541.72,5154.08 3509.5,5259.48 3495.8,5304.3C3492.58,5314.81 3482.88,5321.99 3471.89,5321.99C3432.76,5321.99 3352.08,5321.99 3314.36,5321.99C3311.19,5321.99 3308.21,5320.49 3306.32,5317.94C3304.43,5315.39 3303.87,5312.1 3304.8,5309.07C3318.07,5265.66 3350.55,5159.41 3370.36,5094.64Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,4376.17,-4582.12)">
+                        <path
+                            d="M3570.36,5094.64C3579.35,5065.2 3599.14,5000.48 3602.39,4989.87C3610.58,4963.06 3620.57,4930.38 3628.83,4903.37C3637.83,4873.94 3664.99,4853.84 3695.77,4853.84L3920,4853.84C3923.17,4853.84 3926.16,4855.34 3928.04,4857.89C3929.93,4860.44 3930.49,4863.73 3929.57,4866.76C3929.57,4866.76 3922.48,4889.94 3922.48,4889.94C3913.48,4919.37 3893.7,4984.09 3890.45,4994.7C3874.3,5047.54 3848.61,5131.55 3827.17,5201.7C3805.31,5273.17 3739.34,5321.99 3664.6,5321.99C3607.03,5321.99 3545.36,5321.99 3514.36,5321.99C3511.19,5321.99 3508.21,5320.49 3506.32,5317.94C3504.43,5315.39 3503.87,5312.1 3504.8,5309.07C3518.07,5265.66 3550.55,5159.41 3570.36,5094.64Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,4376.17,-4582.12)">
+                        <path
+                            d="M3415.57,4942.47C3412.78,4950.48 3403.64,4950.96 3405.18,4946.29L3406.26,4943.01C3406.26,4943.01 3419.69,4899.07 3419.69,4899.07C3422.93,4888.46 3420.95,4876.94 3414.35,4868.02C3407.75,4859.1 3397.31,4853.84 3386.22,4853.84C3358.19,4853.84 3324.01,4853.84 3295.77,4853.84C3264.99,4853.84 3237.83,4873.94 3228.83,4903.37L3075.56,5404.7C3074.63,5407.73 3075.2,5411.02 3077.08,5413.57C3078.97,5416.12 3081.95,5417.62 3085.12,5417.62C3113.99,5417.62 3168.04,5417.62 3209.35,5417.62C3240.13,5417.62 3267.3,5397.52 3276.3,5368.09C3298.6,5295.14 3338.49,5164.66 3360.79,5091.71C3371.08,5058.07 3402.12,5035.1 3437.3,5035.1L3526.3,5035.1C3557.08,5035.1 3584.24,5015 3593.24,4985.57C3601.5,4958.57 3611.49,4925.88 3619.69,4899.07C3622.93,4888.46 3620.95,4876.94 3614.35,4868.02C3607.75,4859.1 3597.31,4853.84 3586.22,4853.84L3540.27,4853.84C3483.05,4853.84 3433.23,4891.73 3415.57,4942.47Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,5278.13,-4582.12)">
+                        <path
+                            d="M3219.69,4899.07L3095.8,5304.3C3092.58,5314.81 3082.88,5321.99 3071.89,5321.99C3071.89,5321.99 2995.45,5321.99 2995.45,5321.99C2973.25,5321.99 2952.38,5311.47 2939.18,5293.63C2925.97,5275.79 2922.01,5252.75 2928.5,5231.53L3041.81,4860.92C3042.9,4857.34 3048.63,4853.84 3052.37,4853.84C3077.64,4853.84 3139.85,4853.84 3186.22,4853.84C3197.31,4853.84 3207.75,4859.1 3214.35,4868.02C3220.95,4876.94 3222.93,4888.46 3219.69,4899.07Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,5278.13,-4582.12)">
+                        <path
+                            d="M3370.36,5094.64C3379.35,5065.2 3406.52,5045.1 3437.3,5045.1L3527.74,5045.1C3538.84,5045.1 3549.28,5050.36 3555.88,5059.28C3562.48,5068.2 3564.46,5079.72 3561.21,5090.33C3541.72,5154.08 3509.5,5259.48 3495.8,5304.3C3492.58,5314.81 3482.88,5321.99 3471.89,5321.99C3432.76,5321.99 3352.08,5321.99 3314.36,5321.99C3311.19,5321.99 3308.21,5320.49 3306.32,5317.94C3304.43,5315.39 3303.87,5312.1 3304.8,5309.07C3318.07,5265.66 3350.55,5159.41 3370.36,5094.64Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,5278.13,-4582.12)">
+                        <path
+                            d="M3570.36,5094.64C3579.35,5065.2 3599.14,5000.48 3602.39,4989.87C3610.58,4963.06 3620.57,4930.38 3628.83,4903.37C3637.83,4873.94 3664.99,4853.84 3695.77,4853.84L3920,4853.84C3923.17,4853.84 3926.16,4855.34 3928.04,4857.89C3929.93,4860.44 3930.49,4863.73 3929.57,4866.76C3929.57,4866.76 3922.48,4889.94 3922.48,4889.94C3913.48,4919.37 3893.7,4984.09 3890.45,4994.7C3874.3,5047.54 3848.61,5131.55 3827.17,5201.7C3805.31,5273.17 3739.34,5321.99 3664.6,5321.99C3607.03,5321.99 3545.36,5321.99 3514.36,5321.99C3511.19,5321.99 3508.21,5320.49 3506.32,5317.94C3504.43,5315.39 3503.87,5312.1 3504.8,5309.07C3518.07,5265.66 3550.55,5159.41 3570.36,5094.64Z" />
+                    </g>
+                    <g transform="matrix(1.00176,0,0,1.00176,5278.13,-4582.12)">
+                        <path
+                            d="M3415.57,4942.47C3412.78,4950.48 3403.64,4950.96 3405.18,4946.29L3406.26,4943.01C3406.26,4943.01 3419.69,4899.07 3419.69,4899.07C3422.93,4888.46 3420.95,4876.94 3414.35,4868.02C3407.75,4859.1 3397.31,4853.84 3386.22,4853.84C3358.19,4853.84 3324.01,4853.84 3295.77,4853.84C3264.99,4853.84 3237.83,4873.94 3228.83,4903.37L3075.56,5404.7C3074.63,5407.73 3075.2,5411.02 3077.08,5413.57C3078.97,5416.12 3081.95,5417.62 3085.12,5417.62C3113.99,5417.62 3168.04,5417.62 3209.35,5417.62C3240.13,5417.62 3267.3,5397.52 3276.3,5368.09C3298.6,5295.14 3338.49,5164.66 3360.79,5091.71C3371.08,5058.07 3402.12,5035.1 3437.3,5035.1L3526.3,5035.1C3557.08,5035.1 3584.24,5015 3593.24,4985.57C3601.5,4958.57 3611.49,4925.88 3619.69,4899.07C3622.93,4888.46 3620.95,4876.94 3614.35,4868.02C3607.75,4859.1 3597.31,4853.84 3586.22,4853.84L3540.27,4853.84C3483.05,4853.84 3433.23,4891.73 3415.57,4942.47Z" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+
+        <div class="content debug">
+            <div class="grid1 debug">
+                <div class="gcont1 span2 debug">
+                    <!-- <img class="logo" src="assets/logo.svg" alt="Hello!"> -->
+                    <svg id="logo" class="logo debug" viewBox="0 0 449 252" onclick="logoSwap(this.id)">
+                        <use href="#logosvg"></use>
+                    </svg>
+                    <!-- <img id="portrait1" class="portrait" src="assets/portrait1.png" alt=""> -->
+                    <div id="port1" class="portrait" onclick="portSwap()">
+                    </div>
+
+                </div>
+                <div class="gcont1 span3 debug">
+                    <p class="p1">Hi, I'm <span class="p1_b">Iris Li</span>!
+                        <br>
+                        I'm a digital and print designer making <span class="p1_b">publications,
+                            interactive experiences</span> and <span class="p1_b">things that move.</span>
+                        
+                    </p>
+                    <!-- flexbox here -->
+                    <div class="smFlex debug">
+                        <div class="smIcon debug">
+                            <!-- <img src="assets/twitter.svg" alt="Twitter!"> -->
+                            <svg viewBox="0 0 396 396">
+                                <use class="debug" href="#twticon"></use>
+                            </svg>
+                            <a href="https://twitter.com/irisviscom"><span class="smLink"></span></a>
+                            <div class="smpopcont debug">
+                                <div class="smpopup debug">
+                                    <p class="p2">@irisviscom</p>
+                                    <!-- <p class="p2">@irisviscom</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="smIcon debug">
+                            <!-- <img src="assets/instagram.svg" alt="Instagram!!"> -->
+                            <svg viewBox="0 0 396 396">
+                                <use class="debug" href="#instaicon"></use>
+                            </svg>
+                            <a href="https://www.instagram.com/irisdsn/"><span class="smLink"></span></a>
+                            <div class="smpopcont debug">
+                                <div class="smpopup debug">
+                                    <p class="p2">@irisdsn</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="smIcon debug" id="copybutton1" onFocusout="unFocus()">
+                            <!-- <img src="assets/email.svg" alt="Email!!!"> -->
+                            <svg viewBox="0 0 396 396">
+                                <use class="debug" href="#emailicon"></use>
+                            </svg>
+                            <!-- <a href="mailto: lightli847@gmail.com"><span class="smLink"></span></a> -->
+                            <div class="smpopcont debug">
+                                <div class="smpopup debug">
+                                    <div id="copybutton1" class="copybutton debug">
+                                        <svg id="copyiconicon1" class="debug" viewBox="0 0 24 24">
+                                            <use href=#copyicon></use>
+                                        </svg>
+                                        <!-- <p class="p2" id="copytext" contenteditable>lightli847@gmail.com</p> -->
+                                        <input id="copytext1" class="p3" type="text" value="lightli847@gmail.com">
+                                        <!-- <span class="p2" id="copytext" contenteditable>lightli847@gmail.com</span> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+
+                var buttonObject1 = document.getElementById("copybutton1");
+                var textObject1 = document.getElementById("copytext1");
+                var iconObject1 = document.getElementById("copyiconicon1");
+                var time = 0;
+                // var timeFunc = setInterval(timerCount, 100);
+
+                buttonObject1.onclick = function () {
+                    textObject1.select();
+                    document.execCommand('copy');
+                    // console.log("hi");
+                    iconObject1.innerHTML = "<use href=#tickicon></use>"
+                }
+
+                function unFocus() {
+                    iconObject1.innerHTML = "<use href=#copyicon></use>"
+                    // console.log("out");
+                }
+
+            </script>
+
+            <div class="centrebox debug">
+                <p class="p1">Check out some of my work!</p>
+                <br>
+                <!-- <img class="bob1" src="assets/triangle.svg" alt="" style="width: 2.5vw;"> -->
+                <svg class="arrowdown debug" style="width: 2.5vw;" viewBox="0 0 47 32">
+                    <g transform="matrix(1,0,0,1,-4303.8,-2120.04)">
+                        <g transform="matrix(1,0,0,1,3377.99,1317.81)">
+                            <g transform="matrix(1.07691,0,0,-0.732667,-3590.1,2294.79)">
+                                <path d="M4215.15,1993.67L4236.89,2037.15L4193.41,2037.15L4215.15,1993.67Z" />
+                                <path
+                                    d="M4215.15,1993.67L4236.89,2037.15L4193.41,2037.15L4215.15,1993.67ZM4215.15,1998.28L4197.08,2034.42C4197.08,2034.42 4233.23,2034.42 4233.23,2034.42L4215.15,1998.28Z" />
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+
+            <script type="text/javascript">
+                var iframetoggle = 0;
+                var img;
+                var iframe;
+
+                function iframeFocus(id) {
+                    img = document.getElementById(id);
+                    iframe = document.getElementById(id).firstElementChild;
+                    location.hash = "";
+                    
+                    if (iframetoggle == 0) {
+                        // console.log("got id of " + id);
+                        // console.log("got child " + iframe.id);
+                        //ACCOUNTING FOR HEADER
+
+                        if (headerToggle == 1) {
+                            iframe.setAttribute("style", "height:100%; z-index:30;");
+                            // console.log(headerToggle);
+                        }
+                        else {
+                            iframe.setAttribute("style", "height:100%; z-index:30; top: 0vh;");
+                            // console.log(headerToggle);
+                        }
+
+
+                        iframetoggle = 1;
+                        // console.log(iframetoggle);
+                        bodyElement.classList.add("stop_scrolling");
+                    }
+
+                }
+                function iframeUnfocus(event) {
+                    location.hash;
+                    // console.log("2got id of " + id);
+                    // console.log("2got parent " + bg.parentElement.id);
+                    if (iframetoggle == 1) {
+                        iframe.setAttribute("style", "height:0%");
+                        iframetoggle = 0;
+                        bodyElement.classList.remove("stop_scrolling");
+                        // console.log(iframetoggle + event);
+                        event.stopPropagation();
+                    }
+                }
+            </script>
+
+            <div class="grid2 debug">
+                <!--  -->
+                <!--  -->
+                <!-- TO CREATE A NEW IFRAME ELEMENT, CHANGE THE IDS OF THE PARENT DIV, IFRAME AND BG -->
+                <!--  -->
+                <!--  -->
+
+                <!-- CELL 1 -->
+                <div id="img1" onclick="iframeFocus(this.id)" class="gcont2 start1 span4 debug">
+                    <!-- iframe here -->
+                    <div id="iframe1" class="iframe1 debug">
+                        <div onclick="iframeUnfocus(event)" class="bg debug"></div>
+                        <iframe class="debug" src="darkness.html" frameborder="0">
+                        </iframe>
+                    </div>
+                    <div class="imgframe1 scale2">
+                        <img class="gifthumb" src="assets/darknessgif.gif" alt="">
+                        <img class="thumb" src="assets/darkness1.png" alt="">
+                    </div>
+                </div>
+
+                <!-- CELL 2 -->
+                <div class="gcont2 start5 span2 debug">
+                    <!-- <img src="assets/groundzero1.png" alt=""> -->
+                    <p class="p1"><span class="p1_b">Darkness Full of Light </span>
+                        is a hypothetical opening sequence
+                        for a screen adaptation of Tony
+                        Dietz's short story; Darkness Full of Light.
+                    </p>
+                </div>
+
+                <!-- LINE -->
+                <!-- <div class="line1 start1 span2"></div> -->
+
+                <div class="gcont2 start1 span2 debug">
+                    <p class="p1"><span class="p1_b">Ground 0 </span>
+                        is a living document exploring the
+                        DEFCON categorisation system as a categorisation
+                        of human experiences towards the brink of nuclear
+                        threat.
+                    </p>
+                </div>
+                <div id="img2" onclick="iframeFocus(this.id)" class="gcont2 start3 span4 debug">
+                    <!-- iframe here -->
+                    <div id="iframe2" class="iframe1 debug">
+                        <div onclick="iframeUnfocus(event)" class="bg debug"></div>
+                        <iframe class="debug" src="groundzero.html" frameborder="0">
+                        </iframe>
+                    </div>
+
+                    <div class="imgframe1 scale2">
+                        <img class="" src="assets/groundzerogif.gif" alt="">
+                        <img class="thumb" src="assets/groundzero1.png" alt="">
+                    </div>
+                </div>
+
+                <div id="img3" onclick="iframeFocus(this.id)" class="gcont2 start1 span4 debug">
+                    <!-- iframe here -->
+                    <div id="iframe3" class="iframe1 debug">
+                        <div onclick="iframeUnfocus(event)" class="bg debug"></div>
+                        <iframe class="debug" src="white.html" frameborder="0">
+                        </iframe>
+                    </div>
+
+                    <div class="imgframe1 scale2">
+                        <img class="" src="assets/whitegif.gif" alt="">
+                        <img class="thumb" src="assets/white1.png" alt="">
+                    </div>
+                </div>
+                <div class="gcont2 start5 span2 debug">
+                    <p class="p1"><span class="p1_b">White Man's Thumb </span>
+                        is an interactive essay based on and using the words
+                        of Auntie Marjorie Dixie, Aboriginal Elder of La Perouse
+                        and Uncle Greg Simms of the Dharug Nation.
+                    </p>
+                </div>
+
+                <!-- <div class="line2 start6 span2"></div> -->
+                <!-- <div class="line1 start1 span2"></div> -->
+
+                <div class="gcont2 start1 span2 debug">
+                    <p class="p1"><span class="p1_b">VALERIE </span>
+                        is an animated typography
+                        music video exploring
+                        the themes of body dysmorphia
+                        and the changing perception
+                        of self through a gender non-conforming lens.
+                    </p>
+                </div>
+                <div id="img4" onclick="iframeFocus(this.id)" class="gcont2 start3 span4 debug">
+                    <!-- iframe here -->
+                    <div id="iframe4" class="iframe1 debug">
+                        <div onclick="iframeUnfocus(event)" class="bg debug"></div>
+                        <iframe class="debug" src="valerie.html" frameborder="0">
+                        </iframe>
+                    </div>
+
+                    <div class="imgframe1 scale2">
+                        <img class="" src="assets/valeriegif.gif" alt="">
+                        <img class="thumb" src="assets/valerie1.png" alt="">
+                    </div>
+                </div>
+
+
+
+
+                <div class="gcont2 span7 bottomlist debug">
+                    <p class="p1"><span class="p1_b">Other works</span></p>
+                </div>
+
+                <div class="gcont2 gcont2list span3 debug">
+                    <p class="p1">
+                        <a class="inlink" href="https://vimeo.com/527219683">Eurostile - Animated Poster</a><br>
+                        <a class="inlink" href="https://vimeo.com/546458898">Lost Soul - Generative Book</a><br>
+                        <a class="inlink" href="assets/mxmedia.pdf">mx. media - Digital Reflection</a><br>
+                        <a class="inlink" href="https://vimeo.com/546453881">Baayami - Motion Typography</a><br>
+                    </p>
+                </div>
+                <div class="gcont2 gcont2list span3 debug">
+                    <p class="p1">
+                        <a class="inlink" href="https://vimeo.com/474492861">MASS Expression - AR Publication Cover</a><br>
+                        <a class="inlink" href="https://utsstudentsassociation.org.au/news/a-guide-to-uts">UTSSA Handbook 2021 - Publication Layout</a><br>
+                        <a class="inlink" href="https://letl.bandcamp.com/track/estraven-2020">Estraven - Digital CD Cover</a><br>
+                    </p>
+                </div>
+            </div>
+                
+            </div>
+
+        </div> <!-- end of content -->
+    </div> <!-- end of flex wrapper -->
+
+    <div class="endblock">
+        <p class="p1">Made with love in <span class="p1_b">HTML, CSS, JS</span> and <span class="p1_b">P5.js</span> by Iris Li (Also credited as Wilson)
+            <3 <br>
+                Hosted on <span class="p1_b">Neocities.org</span>
+        </p>
+    </div>
+
+</body>
+
+</html>
+
+<div class="svgstore">
+    <!-- logo -->
+    <svg class="logo" id="logosvg" viewBox="0 0 449 252">
+        <g transform="matrix(1,0,0,1,-2419.34,-422.232)">
+            <g transform="matrix(0.446035,0,0,0.446035,1114.49,-1742.75)">
+                <path
+                    d="M2970.36,5094.64C2979.35,5065.2 3006.52,5045.1 3037.3,5045.1L3127.74,5045.1C3138.84,5045.1 3149.28,5050.36 3155.88,5059.28C3162.48,5068.2 3164.46,5079.72 3161.21,5090.33C3161.21,5090.33 3095.8,5304.3 3095.8,5304.3C3092.58,5314.81 3082.88,5321.99 3071.89,5321.99C3071.89,5321.99 2995.45,5321.99 2995.45,5321.99C2973.25,5321.99 2952.38,5311.47 2939.18,5293.63C2925.97,5275.79 2922.01,5252.75 2928.5,5231.53C2942.49,5185.78 2958.64,5132.95 2970.36,5094.64Z" />
+            </g>
+            <g transform="matrix(0.446035,0,0,0.446035,1114.49,-1742.75)">
+                <path
+                    d="M3370.36,5094.64C3379.35,5065.2 3406.52,5045.1 3437.3,5045.1L3527.74,5045.1C3538.84,5045.1 3549.28,5050.36 3555.88,5059.28C3562.48,5068.2 3564.46,5079.72 3561.21,5090.33C3541.72,5154.08 3509.5,5259.48 3495.8,5304.3C3492.58,5314.81 3482.88,5321.99 3471.89,5321.99C3432.76,5321.99 3352.08,5321.99 3314.36,5321.99C3311.19,5321.99 3308.21,5320.49 3306.32,5317.94C3304.43,5315.39 3303.87,5312.1 3304.8,5309.07C3318.07,5265.66 3350.55,5159.41 3370.36,5094.64Z" />
+            </g>
+            <g transform="matrix(0.446035,0,0,0.446035,1114.49,-1742.75)">
+                <path
+                    d="M3772.33,5045.1C3785.41,5045.1 3791.07,5035.1 3781.8,5035.1C3759.57,5035.1 3695.09,5035.1 3635.86,5035.1C3624.76,5035.1 3614.32,5029.84 3607.72,5020.92C3601.12,5012 3599.14,5000.48 3602.39,4989.87C3610.58,4963.06 3620.57,4930.38 3628.83,4903.37C3637.83,4873.94 3664.99,4853.84 3695.77,4853.84L3920,4853.84C3923.17,4853.84 3926.16,4855.34 3928.04,4857.89C3929.93,4860.44 3930.49,4863.73 3929.57,4866.76C3929.57,4866.76 3922.48,4889.94 3922.48,4889.94C3913.48,4919.37 3886.32,4941.3 3855.54,4941.3L3820.03,4941.3C3811.04,4941.3 3800.02,4949.47 3812.04,4949.47L3856.98,4949.47C3868.08,4949.47 3878.51,4954.73 3885.12,4963.65C3891.72,4972.57 3893.7,4984.09 3890.45,4994.7C3874.3,5047.54 3848.61,5131.55 3827.17,5201.7C3805.31,5273.17 3739.34,5321.99 3664.6,5321.99C3607.03,5321.99 3545.36,5321.99 3514.36,5321.99C3511.19,5321.99 3508.21,5320.49 3506.32,5317.94C3504.43,5315.39 3503.87,5312.1 3504.8,5309.07C3518.07,5265.66 3550.55,5159.41 3570.36,5094.64C3579.35,5065.2 3606.52,5045.1 3637.3,5045.1C3696.48,5045.1 3748.59,5045.1 3772.33,5045.1Z" />
+            </g>
+            <g transform="matrix(0.446035,0,0,0.446035,1114.49,-1742.75)">
+                <path
+                    d="M3041.81,4860.92C3042.9,4857.34 3048.63,4853.84 3052.37,4853.84C3077.64,4853.84 3139.85,4853.84 3186.22,4853.84C3197.31,4853.84 3207.75,4859.1 3214.35,4868.02C3220.95,4876.94 3222.93,4888.46 3219.69,4899.07C3211.49,4925.88 3201.5,4958.57 3193.24,4985.57C3184.24,5015 3157.08,5035.1 3126.3,5035.1L3035.86,5035.1C3024.76,5035.1 3014.32,5029.84 3007.72,5020.92C3001.12,5012 2999.14,5000.48 3002.39,4989.87L3041.81,4860.92Z" />
+            </g>
+            <g transform="matrix(0.446035,0,0,0.446035,1114.49,-1742.75)">
+                <path
+                    d="M3415.57,4942.47C3412.78,4950.48 3403.64,4950.96 3405.18,4946.29L3406.26,4943.01C3406.26,4943.01 3419.69,4899.07 3419.69,4899.07C3422.93,4888.46 3420.95,4876.94 3414.35,4868.02C3407.75,4859.1 3397.31,4853.84 3386.22,4853.84C3358.19,4853.84 3324.01,4853.84 3295.77,4853.84C3264.99,4853.84 3237.83,4873.94 3228.83,4903.37L3075.56,5404.7C3074.63,5407.73 3075.2,5411.02 3077.08,5413.57C3078.97,5416.12 3081.95,5417.62 3085.12,5417.62C3113.99,5417.62 3168.04,5417.62 3209.35,5417.62C3240.13,5417.62 3267.3,5397.52 3276.3,5368.09C3298.6,5295.14 3338.49,5164.66 3360.79,5091.71C3371.08,5058.07 3402.12,5035.1 3437.3,5035.1L3526.3,5035.1C3557.08,5035.1 3584.24,5015 3593.24,4985.57C3601.5,4958.57 3611.49,4925.88 3619.69,4899.07C3622.93,4888.46 3620.95,4876.94 3614.35,4868.02C3607.75,4859.1 3597.31,4853.84 3586.22,4853.84L3540.27,4853.84C3483.05,4853.84 3433.23,4891.73 3415.57,4942.47Z" />
+            </g>
+        </g>
+    </svg>
+    <!-- twitter -->
+    <svg id="twticon" viewBox="0 0 396 396">
+        <g transform="matrix(1,0,0,1,-3147.86,-4007.39)">
+            <path
+                d="M3345.59,4007.39C3454.71,4007.39 3543.31,4095.99 3543.31,4205.11C3543.31,4314.24 3454.71,4402.83 3345.59,4402.83C3236.46,4402.83 3147.86,4314.24 3147.86,4205.11C3147.86,4095.99 3236.46,4007.39 3345.59,4007.39ZM3471.07,4122.34C3466.94,4124.17 3462.69,4125.71 3458.35,4126.97C3463.49,4121.16 3467.41,4114.32 3469.8,4106.85C3470.33,4105.17 3469.78,4103.33 3468.4,4102.24C3467.02,4101.14 3465.11,4101.01 3463.6,4101.91C3454.38,4107.37 3444.44,4111.3 3434.02,4113.6C3423.52,4103.34 3409.26,4097.5 3394.52,4097.5C3363.4,4097.5 3338.09,4122.81 3338.09,4153.93C3338.09,4156.38 3338.24,4158.82 3338.55,4161.22C3299.93,4157.83 3264.03,4138.85 3239.38,4108.61C3238.51,4107.53 3237.15,4106.95 3235.77,4107.07C3234.38,4107.17 3233.13,4107.95 3232.43,4109.16C3227.43,4117.74 3224.79,4127.55 3224.79,4137.53C3224.79,4151.13 3229.64,4164.03 3238.22,4174.11C3235.61,4173.21 3233.08,4172.08 3230.67,4170.74C3229.37,4170.02 3227.79,4170.03 3226.5,4170.77C3225.21,4171.51 3224.4,4172.86 3224.37,4174.35C3224.36,4174.6 3224.36,4174.85 3224.36,4175.1C3224.36,4195.4 3235.29,4213.67 3251.99,4223.63C3250.55,4223.49 3249.12,4223.28 3247.7,4223.01C3246.23,4222.73 3244.72,4223.24 3243.73,4224.36C3242.73,4225.48 3242.41,4227.04 3242.86,4228.47C3249.05,4247.77 3264.96,4261.97 3284.2,4266.29C3268.24,4276.29 3249.99,4281.52 3230.84,4281.52C3226.84,4281.52 3222.82,4281.29 3218.88,4280.82C3216.93,4280.59 3215.06,4281.75 3214.39,4283.6C3213.73,4285.46 3214.43,4287.54 3216.1,4288.6C3240.71,4304.38 3269.17,4312.73 3298.39,4312.73C3355.85,4312.73 3391.79,4285.63 3411.82,4262.9C3436.81,4234.56 3451.13,4197.05 3451.13,4159.98C3451.13,4158.44 3451.11,4156.87 3451.06,4155.31C3460.92,4147.89 3469.41,4138.9 3476.31,4128.57C3477.36,4127 3477.24,4124.93 3476.03,4123.48C3474.82,4122.04 3472.79,4121.57 3471.07,4122.34Z" />
+        </g>
+    </svg>
+
+    <!-- instagram -->
+    <svg id="instaicon" viewBox="0 0 396 396">
+        <g transform="matrix(1,0,0,1,-3708.38,-4007.39)">
+            <path
+                d="M3906.1,4007.39C4015.23,4007.39 4103.83,4095.99 4103.83,4205.11C4103.83,4314.24 4015.23,4402.83 3906.1,4402.83C3796.98,4402.83 3708.38,4314.24 3708.38,4205.11C3708.38,4095.99 3796.98,4007.39 3906.1,4007.39ZM3852.95,4085.52C3816.27,4085.52 3786.52,4115.27 3786.52,4151.96L3786.52,4258.26C3786.52,4294.95 3816.27,4324.7 3852.95,4324.7L3959.25,4324.7C3995.94,4324.7 4025.69,4294.95 4025.69,4258.26L4025.69,4151.96C4025.69,4115.27 3995.94,4085.52 3959.25,4085.52L3852.95,4085.52ZM3906.1,4138.67C3942.79,4138.67 3972.54,4168.42 3972.54,4205.11C3972.54,4241.8 3942.79,4271.55 3906.1,4271.55C3869.42,4271.55 3839.67,4241.8 3839.67,4205.11C3839.67,4168.42 3869.42,4138.67 3906.1,4138.67ZM3906.1,4165.25C3884.24,4165.25 3866.24,4183.24 3866.24,4205.11C3866.24,4226.98 3884.24,4244.97 3906.1,4244.97C3927.97,4244.97 3945.97,4226.98 3945.97,4205.11C3945.97,4183.24 3927.97,4165.25 3906.1,4165.25ZM3985.83,4112.1C3993.16,4112.1 3999.12,4118.05 3999.12,4125.39C3999.12,4132.72 3993.16,4138.67 3985.83,4138.67C3978.49,4138.67 3972.54,4132.72 3972.54,4125.39C3972.54,4118.05 3978.49,4112.1 3985.83,4112.1Z" />
+        </g>
+    </svg>
+
+    <!-- email -->
+    <svg id="emailicon" viewBox="0 0 396 396">
+        <g transform="matrix(1,0,0,1,-4345.71,-4007.39)">
+            <path
+                d="M4543.43,4007.39C4652.56,4007.39 4741.15,4095.99 4741.15,4205.11C4741.15,4314.24 4652.56,4402.83 4543.43,4402.83C4434.3,4402.83 4345.71,4314.24 4345.71,4205.11C4345.71,4095.99 4434.3,4007.39 4543.43,4007.39ZM4664.65,4132.38C4664.65,4119.04 4653.74,4108.13 4640.41,4108.13L4446.45,4108.13C4433.12,4108.13 4422.21,4119.04 4422.21,4132.38L4422.21,4277.84C4422.21,4291.18 4433.12,4302.09 4446.45,4302.09L4640.41,4302.09C4653.74,4302.09 4664.65,4291.18 4664.65,4277.84L4664.65,4132.38ZM4640.41,4277.84L4446.45,4277.84L4446.45,4156.62L4543.43,4217.23L4640.41,4156.62L4640.41,4277.84ZM4640.41,4132.38L4543.43,4192.99L4446.45,4132.38L4640.41,4132.38Z" />
+        </g>
+    </svg>
+
+    <!-- copy -->
+    <svg id="copyicon" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z" />
+    </svg>
+
+    <!-- tick -->
+    <svg id="tickicon" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+    </svg>
+
+</div>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" id="sub" class="theme-dark">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <script src="https://player.vimeo.com/api/player.js"></script>
+</head>
+
+<body class="iframebody debug preload">
+    <div class="grid3 debug">
+
+        <div class="gcont3 start1 span2">
+            <div class="backbutton scale2" onclick="parent.iframeUnfocus(event)">
+                <p class="p1">
+                    << Back</p>
+            </div>
+        </div>
+
+        <div class="gcont3 start1 span14 border1">
+            <!-- VIDEO -->
+            <div style="padding:56.25% 0 0 0;position:relative;background-color: black;"><iframe id="vid"
+                    src="https://player.vimeo.com/video/556968750?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                    frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                    title="Darkness Full of Light"></iframe></div>
+            <!-- script to stop video -->
+            <script>
+                setInterval(function () {
+                    var body = document.getElementById("sub");
+                    var vid = document.getElementById("vid");
+                    var player = new Vimeo.Player(vid); /*convert to player*/
+
+                    //    console.log(body.clientHeight);
+                    if (body.clientHeight <= 10) {
+                        player.pause();
+                        // console.log(1);
+                    }
+                }, 500);
+            </script>
+        </div>
+
+        <div class="gcont3 start1 span7">
+            <p class="p1 p4">
+                A story of horror and unity in the depths,
+                <a href="https://csi.asu.edu/story/darkness/" class="inlink">
+                    Darkness Full of Light</a>
+                is a work of
+                speculative fiction by Tony Dietz. In my opening
+                sequence I aimed to depict protagonist Jozette's journey
+                between dark and light; loneliness and unity, as she scales
+                from the deep depths of the ocean to the surface and back.
+            </p>
+        </div>
+
+        <div class="gcont3 span7">
+            <p class="p1 p4">
+                Made with Adobe Illustrator, Affinity Designer, After Effects and 
+                Resolve FX.
+                <br>
+                <br>
+                Additional music made in FL Studio 20.
+            </p>
+        </div>
+
+        <div class="gcont3 span7 border1">
+            <img class="imgmix" src="assets/darkness2.png" alt="">
+        </div>
+
+        <div class="gcont3 span7 debug">
+            <div class="subgrid1">
+                <img class="imgmix border1" src="assets/darkness4.png" alt="">
+                <img class="imgmix border1" src="assets/darkness5.png" alt="">
+            </div>
+        </div>
+
+        <div class="gcont3 start1 span7">
+            <p class="p1 p4">
+                First pass of design boards prior to animation,
+                on review I changed the colours of the light materials
+                in order to get a more realistic emissive effect.
+                Several shot transitions were also changed to flow better
+                with the narrative of "up and down" at play in the story.
+            </p>
+        </div>
+
+        <div class="gcont3 span7">
+            <p class="p1 p4">
+                As this was to be a primarily typographic sequence, I 
+                wanted to create a custom typeface that suited the mood 
+                and worldbuilding of the story. Jozette's people, the Mata, 
+                are a futuristic society living on the ocean floor. Despite 
+                their advancements, they live in scarcity of air, lighting 
+                and space, and as such I took inspiration from durable low 
+                power tech such as segmented LED watch displays, putting a 
+                curved, humanist twist on it in reflection of their ironically 
+                primative, insular state.
+            </p>
+        </div>
+
+        <hr class="span14">
+
+        <div class="gcont3 start1 span2">
+            <div class="backbutton scale2" onclick="parent.iframeUnfocus(event)">
+                <p class="p1">
+                    << Back</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

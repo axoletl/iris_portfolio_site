@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" id="sub" class="theme-dark">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <script src="https://player.vimeo.com/api/player.js"></script>
+</head>
+
+<body class="iframebody debug preload">
+    <div class="grid3 debug">
+
+        <div class="gcont3 start1 span2">
+            <div class="backbutton scale2" onclick="parent.iframeUnfocus(event)">
+                <p class="p1">
+                    << Back</p>
+            </div>
+        </div>
+
+        <div class="gcont3 start1 span14 border1">
+            <!-- VIDEO -->
+            <div style="padding:56.25% 0 0 0;position:relative;background-color: black;"><iframe id="vid"
+                    src="https://player.vimeo.com/video/569703359?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                    frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                    title="Darkness Full of Light"></iframe></div>
+            <!-- script to stop video -->
+            <script>
+                setInterval(function () {
+                    var body = document.getElementById("sub");
+                    var vid = document.getElementById("vid");
+                    var player = new Vimeo.Player(vid); /*convert to player*/
+
+                    //    console.log(body.clientHeight);
+                    if (body.clientHeight <= 10) {
+                        player.pause();
+                        // console.log(1);
+                    }
+                }, 500);
+            </script>
+        </div>
+
+        <div class="gcont3 start1 span7">
+            <p class="p1 p4">
+                "...But noone listens to us" - Uncle Greg Simms <br>
+                <br>
+                White Man's Thumb is an interactive essay retelling of 
+                the words of Aunty Marjorie’s and Uncle Greg’s story of 
+                their childhood under a white mission. Their story speaks 
+                to the challenges, roadblocks and ever persistent 
+                presence under the white man's thumb.
+                <br><br>
+                <a href="https://editor.p5js.org/axoletl/full/c4t1PPpmP" class="inlink">
+                    Play the sketch here.</a>
+            </p>
+        </div>
+
+        <div class="gcont3 span7">
+            <p class="p1 p4">
+                Made in P5.js with imagery created in handmade collage. 
+                The sources of 
+                the collage material included prints of laws regarding the 
+                suppression and management of Indigenous people throughout 
+                history.
+                <br>
+                <br>
+                Additional sound made in FL Studio 20.
+            </p>
+        </div>
+
+        <div class="gcont3 span7 border1">
+            <img class="imgmix" src="assets/white2.png" alt="">
+        </div>
+
+        <div class="gcont3 span7 border1">
+            <img class="imgmix" src="assets/white3.png" alt="">
+        </div>
+
+        <div class="gcont3 start1 span7">
+            <p class="p1 p4">
+                The collage used in the P5.js sketch was based on a 
+                recreation of the mission church at La Perouse, Aunty 
+                Marjorie and Uncle Greg's home.
+            </p>
+        </div>
+
+        <div class="gcont3 span7">
+            <p class="p1 p4">
+                The idea of the interaction began at the sketch level. 
+                I wanted to explore the idea of Aunty Marjorie and Uncle 
+                Greg's story through the literal metaphor of lenses, and 
+                the idea of the interactive experience as an "eye test".
+            </p>
+        </div>
+
+        <hr class="span14">
+
+        <div class="gcont3 start1 span2">
+            <div class="backbutton scale2" onclick="parent.iframeUnfocus(event)">
+                <p class="p1">
+                    << Back</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
