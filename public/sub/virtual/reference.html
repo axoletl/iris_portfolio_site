@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<!-- head - useful behind the scenes stuff -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="virtual worlds in the context of mmos">
+    <meta name="viewport" content="width=device-width">
+    <title>VIRTUAL WORLDS</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<!-- body - the visible content on the page -->
+
+<body>
+    <div id="wrapper" class="wrapper">
+        <header id="headerDiv" class="header">
+            <h1 class="p2">VIRTUAL WORLDS</h1>
+            <h2 class="p3">reference - sources and related sites</h2>
+        </header>
+
+        <div id="controlToggle" onclick="mobileMenu()" class="control-toggle">
+
+        </div>
+        <div id="controlMask" class="control-mask">
+
+        </div>
+        <div id="controlDiv" class="control">
+            <nav id="navDiv" class="nav" style="opacity:1;">
+                <div id="navInfo" class="nav-info">
+                    <p class="p1">
+                        world: ???
+                    </p>
+                    <p class="p1">
+                        x: 0
+                    </p>
+                    <p class="p1">
+                        y: 0
+                    </p>
+                </div>
+                <div class="msg-avatar av-static">
+                    <div class="msg-avatar-organ" style="background-image:url(assets/avatar/av1.png)"></div>
+                    <div class="msg-avatar-organ" style="background-image:url(assets/avatar/av5.png)"></div>
+                    <div class="msg-avatar-organ" style="background-image:url(assets/avatar/av6.png)"></div>
+                </div>
+                <div class="nav-container">
+                    <svg onclick="navEntry('sub_index', event)" class="nav-svg" version="1.1"
+                        viewBox="-68.755 0 136.51 79.391" xmlns="http://www.w3.org/2000/svg" alt="Home page navigation">
+                        <g transform-origin="left center" transform="scale(1)">
+                            <path d="m0 0-68.49 39.543 68.49 39.543 68.49-39.543z" />
+                        </g>
+                        <text>
+                            <tspan class="p1" x="0" y="45" text-anchor="middle">home</tspan>
+                        </text>
+                    </svg>
+                    <svg onclick="navEntry('sub_self', event)" class="nav-svg" version="1.1"
+                        viewBox="-68.755 7 136.51 60.391" xmlns="http://www.w3.org/2000/svg" alt="Self page navigation">
+                        <g transform-origin="left center" transform="scale(0.75)">
+                            <path d="m0 0-68.49 39.543 68.49 39.543 68.49-39.543z" />
+                        </g>
+                        <text>
+                            <tspan class="p1" x="0" y="42" text-anchor="middle">self</tspan>
+                        </text>
+                    </svg>
+                    <svg onclick="navEntry('sub_world', event)" class="nav-svg" version="1.1"
+                        viewBox="-68.755 7 136.51 60.391" xmlns="http://www.w3.org/2000/svg"
+                        alt="World page navigation">
+                        <g transform-origin="left center" transform="scale(0.75)">
+                            <path d="m0 0-68.49 39.543 68.49 39.543 68.49-39.543z" />
+                        </g>
+                        <text>
+                            <tspan class="p1" x="0" y="42" text-anchor="middle">world</tspan>
+                        </text>
+                    </svg>
+                    <svg onclick="navEntry('sub_life', event)" class="nav-svg" version="1.1"
+                        viewBox="-68.755 7 136.51 60.391" xmlns="http://www.w3.org/2000/svg" alt="Life page navigation">
+                        <g transform-origin="left center" transform="scale(0.75)">
+                            <path d="m0 0-68.49 39.543 68.49 39.543 68.49-39.543z" />
+                        </g>
+                        <text>
+                            <tspan class="p1" x="0" y="42" text-anchor="middle">life</tspan>
+                        </text>
+                    </svg>
+                </div>
+
+            </nav>
+            <div id="msgDiv" class="message">
+                <!-- messages -->
+                <div id="msgCont" class="msg-cont">
+
+                </div>
+
+                <div class="msg-input">
+                    <p id="msgUserDiv" class="p1">username</p>
+                    <div class="msg-input-field">
+                        <input id="msgInput" class="p1" type="text" name="">
+                        <div id="msgSubmit">>></div>
+                    </div>
+                </div>
+
+                <div id="loginDiv" class="msg-login">
+                    <p class="p1">
+                        this world connects its inhabitants via a chatroom.<br>
+                        to connect, enter what you would like to be referred to as below and click the yellow button.
+                    </p>
+                    <div class="msg-input-field">
+                        <input id="loginInput" class="p1" type="text" name="">
+                        <div id="loginSubmit">>></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main id="contentDiv" class="content">
+            <div class="content-container content-text span7">
+                <p class="p1">
+                    Alcopopstar. (2018). Ship of Theseus. Alco. <br>
+                    <a class="p-link"
+                        href="https://ramheadedgirl.com/games/shipoftheseus/" target="_blank">https://ramheadedgirl.com/games/shipoftheseus/</a>
+                    <br><br>
+                    Final Fantasy XIV. (2013). Square Enix. <br>
+                    <a class="p-link" href="https://www.finalfantasyxiv.com/" target="_blank">https://www.finalfantasyxiv.com/</a>
+                    <br><br>
+                    Furcadia. (1996). Dragon Eye Productions. <br>
+                    <a href="https://cms.furcadia.com/" class="p-link">https://cms.furcadia.com/</a>
+                    <br><br>
+                    Perry, A. (2019, March 15). Navigating the Confusing, Horny World of MMO Roleplay. fanbyte. <br>
+                    <a class="p-link"
+                        href="https://www.fanbyte.com/features/navigating-the-confusing-horny-world-of-mmo-roleplay/" target="_blank">https://www.fanbyte.com/features/navigating-the-confusing-horny-world-of-mmo-roleplay/</a>
+                    <br><br>
+                    Phantasy Star Online 2. (2012). Sega. <br>
+                    <a class="p-link" href="https://pso2.com/" target="_blank">https://pso2.com/</a>
+                    <br><br>
+                    Virtual world. (Accessed 2021, November 30). In Wikipedia. <br>
+                    <a class="p-link" href="https://en.wikipedia.org/wiki/Virtual_world" target="_blank">https://en.wikipedia.org/wiki/Virtual_world</a>
+                    <br><br>
+                    Wynsor, C. (2019, December 4). How character creators help us explore gender identity and
+                    expression. Gayming. <br>
+                    <a class="p-link" href="https://gaymingmag.com/2019/12/how-character-creators-help-us-explore-gender-identity-and-expression/" target="_blank">https://gaymingmag.com/2019/12/how-character-creators-help-us-explore-gender-identity-and-expression/</a>
+                    <br><br>
+                </p>
+                <p class="p4 p-link" onclick="history.back()">
+                    GO BACK >>
+                </p>
+            </div>
+        </main>
+    </div>
+    <footer class="footer">
+        <p class="p1 p1-3">
+            Site by Wil "Iris" Li, with content based on Wikipedia and <span class="p-link" onclick="navEntry('sub_reference', event)">additional sources</span>.
+            <br>
+            Made for UTS 87539 VC Designing Interactions: Webmedia 2021 on unceded Dharawal Land.
+        </p>
+    </footer>
+</body>
+
+<div class="scripts">
+    <script src="getelement.js"></script>
+    <script src="loader.js"></script>
+    <script src="chat.js"></script>
+    <script src="avatar.js"></script>
+    <script src="interact.js"></script>
+</div>
+
+</html>

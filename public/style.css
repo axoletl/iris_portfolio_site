@@ -501,7 +501,7 @@ hr {
 
 .grid2 {
     display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     grid-column-gap: 1vw;
     /*fallback*/
     grid-column-gap: clamp(10px, 1vw, 4vh);

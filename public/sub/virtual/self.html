@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<!-- head - useful behind the scenes stuff -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="virtual worlds in the context of mmos">
+    <meta name="viewport" content="width=device-width">
+    <title>VIRTUAL WORLDS</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<!-- body - the visible content on the page -->
+
+<body>
+    <div id="wrapper" class="wrapper">
+        <header id="headerDiv" class="header">
+            <h1 class="p2">VIRTUAL WORLDS</h1>
+            <h2 class="p3">self - understanding the avatar</h2>
+        </header>
+
+        <div id="controlToggle" onclick="mobileMenu()" class="control-toggle">
+
+        </div>
+        <div id="controlMask" class="control-mask">
+
+        </div>
+        <div id="controlDiv" class="control">
+            <nav id="navDiv" class="nav" style="opacity:1;">
+                <div id="navInfo" class="nav-info">
+                    <p class="p1">
+                        world: ???
+                    </p>
+                    <p class="p1">
+                        x: 0
+                    </p>
+                    <p class="p1">
+                        y: 0
+                    </p>
+                </div>
+                <div class="msg-avatar av-static">
+                    <div class="msg-avatar-organ" style="background-image:url(assets/avatar/av1.png)"></div>
+                    <div class="msg-avatar-organ" style="background-image:url(assets/avatar/av5.png)"></div>
+                    <div class="msg-avatar-organ" style="background-image:url(assets/avatar/av6.png)"></div>
+                </div>
+                <div class="nav-container">
+                    <svg onclick="navEntry('sub_index', event)" class="nav-svg" version="1.1"
+                        viewBox="-68.755 0 136.51 79.391" xmlns="http://www.w3.org/2000/svg" alt="Home page navigation">
+                        <g transform-origin="left center" transform="scale(1)">
+                            <path d="m0 0-68.49 39.543 68.49 39.543 68.49-39.543z" />
+                        </g>
+                        <text>
+                            <tspan class="p1" x="0" y="45" text-anchor="middle">home</tspan>
+                        </text>
+                    </svg>
+                    <svg onclick="navEntry('sub_self', event)" class="nav-svg" version="1.1"
+                        viewBox="-68.755 7 136.51 60.391" xmlns="http://www.w3.org/2000/svg" alt="Self page navigation">
+                        <g transform-origin="left center" transform="scale(0.75)">
+                            <path d="m0 0-68.49 39.543 68.49 39.543 68.49-39.543z" />
+                        </g>
+                        <text>
+                            <tspan class="p1" x="0" y="42" text-anchor="middle">self</tspan>
+                        </text>
+                    </svg>
+                    <svg onclick="navEntry('sub_world', event)" class="nav-svg" version="1.1"
+                        viewBox="-68.755 7 136.51 60.391" xmlns="http://www.w3.org/2000/svg"
+                        alt="World page navigation">
+                        <g transform-origin="left center" transform="scale(0.75)">
+                            <path d="m0 0-68.49 39.543 68.49 39.543 68.49-39.543z" />
+                        </g>
+                        <text>
+                            <tspan class="p1" x="0" y="42" text-anchor="middle">world</tspan>
+                        </text>
+                    </svg>
+                    <svg onclick="navEntry('sub_life', event)" class="nav-svg" version="1.1"
+                        viewBox="-68.755 7 136.51 60.391" xmlns="http://www.w3.org/2000/svg" alt="Life page navigation">
+                        <g transform-origin="left center" transform="scale(0.75)">
+                            <path d="m0 0-68.49 39.543 68.49 39.543 68.49-39.543z" />
+                        </g>
+                        <text>
+                            <tspan class="p1" x="0" y="42" text-anchor="middle">life</tspan>
+                        </text>
+                    </svg>
+                </div>
+
+            </nav>
+            <div id="msgDiv" class="message">
+                <!-- messages -->
+                <div id="msgCont" class="msg-cont">
+
+                </div>
+
+                <div class="msg-input">
+                    <p id="msgUserDiv" class="p1">username</p>
+                    <div class="msg-input-field">
+                        <input id="msgInput" class="p1" type="text" name="">
+                        <div id="msgSubmit">>></div>
+                    </div>
+                </div>
+
+                <div id="loginDiv" class="msg-login">
+                    <p class="p1">
+                        this world connects its inhabitants via a chatroom.<br>
+                        to connect, enter what you would like to be referred to as below and click the yellow button.
+                    </p>
+                    <div class="msg-input-field">
+                        <input id="loginInput" class="p1" type="text" name="">
+                        <div id="loginSubmit">>></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main id="contentDiv" class="content">
+            <div class="content-container content-text span4">
+                <p class="p1">
+                    Avatars represent the player's bridge between the physical and virtual world, a conduit through
+                    which to express oneself among other social actors. Due to this, many MMORPGs prioritise
+                    individuality and customisation of the avatar, often employing some form of character creation and
+                    customisation systems such as clothing and accessories.
+                    <br><br>
+                    Here in this world is an example, a preview of an avatar representing an abstraction of you, with
+                    buttons to cycle through each body part of the avatar.
+                    <br><br>
+                </p>
+                <div class="content-av">
+
+                    <div class="av-edit">
+                        <div onclick="editAvatar(0,-1)">
+                            <p class="av-edit-button p1-3">&lt;&lt;</p>
+                        </div>
+                        <div class="msg-avatar av-static av-prev">
+                            <div class="msg-avatar-organ" style="background-image:url(assets/avatar/av1.png)"></div>
+                            <div class="msg-avatar-organ" style="background-image:url(assets/avatar/av5.png)"></div>
+                            <div class="msg-avatar-organ" style="background-image:url(assets/avatar/av6.png)"></div>
+                        </div>
+                        <div onclick="editAvatar(0,1)">
+                            <p class="av-edit-button p1-3">&gt;&gt;</p>
+                        </div>
+
+                        <div onclick="editAvatar(1,-1)">
+                            <p class="av-edit-button p1-3">&lt;&lt;</p>
+                        </div>
+                        <div onclick="editAvatar(1,1)">
+                            <p class="av-edit-button p1-3">&gt;&gt;</p>
+                        </div>
+
+                        <div onclick="editAvatar(2,-1)">
+                            <p class="av-edit-button p1-3">&lt;&lt;</p>
+                        </div>
+                        <div onclick="editAvatar(2,1)">
+                            <p class="av-edit-button p1-3">&gt;&gt;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-container span3">
+                <figure class="content-figure">
+                    <img class="content-figure-img" src="assets/images/mmoself1.jpg"
+                        alt='My character "Rune" in Phantasy Star Online 2'>
+                    <figcaption class="content-figure-caption p1">My character "Rune" in Phantasy Star Online 2
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="content-container content-text span7">
+                <p class="p1">
+                    Owing to these opportunities, MMORPG avatar systems provide a degree of freedom of expression and
+                    escapism to its players in the ability to transcend the physical flesh. For many queer people and
+                    marginalised people in a world that so heavily dictates identity based on the perception of the
+                    body, it's an attractive prospect.
+                    <br><br>
+                </p>
+                <p class="p4">
+                    “There’s a normalcy to being gay in these spaces that’s overwhelmingly comforting... something about
+                    the fantasy setting and the way in which you interact with others makes your personal identity take
+                    a backseat, making it incredibly easy to be yourself, ironically.” - Smith, R.
+                </p>
+            </div>
+
+            <div class="content-container span3">
+                <figure class="content-figure">
+                    <img class="content-figure-img" src="assets/images/mmoself2.jpg"
+                        alt='My character "Iris" in Final Fantasy 14 Online'>
+                    <figcaption class="content-figure-caption p1">My character "Iris" in Final Fantasy XIV Online
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="content-container content-text span4">
+                <p class="p1">
+                    In my own experiences, character creation systems represent a major appeal in my interest in
+                    MMORPGs. So many complex thoughts and feelings straining against the physical world expressed so
+                    much more freely in an alternative digital space. I've embodied everything from a red haired butch
+                    lesbian catperson, to a demure genderless android, each with varying degrees of distance from my own
+                    identity, but each providing a facet for me to express as such.
+                    <br><br>
+                    In my time in MMORPGs I've had these
+                    experiences mirrored with hundreds of queer people I've met online, granted a power of expression
+                    that would not be possible in the physical world, whether through economic, social or familial
+                    circumstances.
+                    <br><br>
+                </p>
+                <p class="p4 p-link" onclick="navEntry('sub_world', event)">
+                    KEEP READING - WORLD >>
+                </p>
+            </div>
+        </main>
+    </div>
+    <footer class="footer">
+        <p class="p1 p1-3">
+            Site by Wil "Iris" Li, with content based on Wikipedia and <span class="p-link" onclick="navEntry('sub_reference', event)">additional sources</span>.
+            <br>
+            Made for UTS 87539 VC Designing Interactions: Webmedia 2021 on unceded Dharawal Land.
+        </p>
+    </footer>
+</body>
+
+<div class="scripts">
+    <script src="getelement.js"></script>
+    <script src="loader.js"></script>
+    <script src="chat.js"></script>
+    <script src="avatar.js"></script>
+    <script src="interact.js"></script>
+</div>
+
+</html>

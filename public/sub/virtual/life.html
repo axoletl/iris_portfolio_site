@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<!-- head - useful behind the scenes stuff -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="virtual worlds in the context of mmos">
+    <meta name="viewport" content="width=device-width">
+    <title>VIRTUAL WORLDS</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<!-- body - the visible content on the page -->
+
+<body>
+    <div id="wrapper" class="wrapper">
+        <header id="headerDiv" class="header">
+            <h1 class="p2">VIRTUAL WORLDS</h1>
+            <h2 class="p3">life - emergent narratives</h2>
+        </header>
+
+        <div id="controlToggle" onclick="mobileMenu()" class="control-toggle">
+
+        </div>
+        <div id="controlMask" class="control-mask">
+
+        </div>
+        <div id="controlDiv" class="control">
+            <nav id="navDiv" class="nav" style="opacity:1;">
+                <div id="navInfo" class="nav-info">
+                    <p class="p1">
+                        world: ???
+                    </p>
+                    <p class="p1">
+                        x: 0
+                    </p>
+                    <p class="p1">
+                        y: 0
+                    </p>
+                </div>
+                <div class="msg-avatar av-static">
+                    <div class="msg-avatar-organ" style="background-image:url(assets/avatar/av1.png)"></div>
+                    <div class="msg-avatar-organ" style="background-image:url(assets/avatar/av5.png)"></div>
+                    <div class="msg-avatar-organ" style="background-image:url(assets/avatar/av6.png)"></div>
+                </div>
+                <div class="nav-container">
+                    <svg onclick="navEntry('sub_index', event)" class="nav-svg" version="1.1"
+                        viewBox="-68.755 0 136.51 79.391" xmlns="http://www.w3.org/2000/svg" alt="Home page navigation">
+                        <g transform-origin="left center" transform="scale(1)">
+                            <path d="m0 0-68.49 39.543 68.49 39.543 68.49-39.543z" />
+                        </g>
+                        <text>
+                            <tspan class="p1" x="0" y="45" text-anchor="middle">home</tspan>
+                        </text>
+                    </svg>
+                    <svg onclick="navEntry('sub_self', event)" class="nav-svg" version="1.1"
+                        viewBox="-68.755 7 136.51 60.391" xmlns="http://www.w3.org/2000/svg" alt="Self page navigation">
+                        <g transform-origin="left center" transform="scale(0.75)">
+                            <path d="m0 0-68.49 39.543 68.49 39.543 68.49-39.543z" />
+                        </g>
+                        <text>
+                            <tspan class="p1" x="0" y="42" text-anchor="middle">self</tspan>
+                        </text>
+                    </svg>
+                    <svg onclick="navEntry('sub_world', event)" class="nav-svg" version="1.1"
+                        viewBox="-68.755 7 136.51 60.391" xmlns="http://www.w3.org/2000/svg"
+                        alt="World page navigation">
+                        <g transform-origin="left center" transform="scale(0.75)">
+                            <path d="m0 0-68.49 39.543 68.49 39.543 68.49-39.543z" />
+                        </g>
+                        <text>
+                            <tspan class="p1" x="0" y="42" text-anchor="middle">world</tspan>
+                        </text>
+                    </svg>
+                    <svg onclick="navEntry('sub_life', event)" class="nav-svg" version="1.1"
+                        viewBox="-68.755 7 136.51 60.391" xmlns="http://www.w3.org/2000/svg" alt="Life page navigation">
+                        <g transform-origin="left center" transform="scale(0.75)">
+                            <path d="m0 0-68.49 39.543 68.49 39.543 68.49-39.543z" />
+                        </g>
+                        <text>
+                            <tspan class="p1" x="0" y="42" text-anchor="middle">life</tspan>
+                        </text>
+                    </svg>
+                </div>
+
+            </nav>
+            <div id="msgDiv" class="message">
+                <!-- messages -->
+                <div id="msgCont" class="msg-cont">
+
+                </div>
+
+                <div class="msg-input">
+                    <p id="msgUserDiv" class="p1">username</p>
+                    <div class="msg-input-field">
+                        <input id="msgInput" class="p1" type="text" name="">
+                        <div id="msgSubmit">>></div>
+                    </div>
+                </div>
+
+                <div id="loginDiv" class="msg-login">
+                    <p class="p1">
+                        this world connects its inhabitants via a chatroom.<br>
+                        to connect, enter what you would like to be referred to as below and click the yellow button.
+                    </p>
+                    <div class="msg-input-field">
+                        <input id="loginInput" class="p1" type="text" name="">
+                        <div id="loginSubmit">>></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main id="contentDiv" class="content">
+            <div class="content-container content-text span7">
+                <p class="p1">
+                    MMORPGs can provide "lifestyles" within their environments, activities that players choose to engage
+                    in with their time in these worlds. Many are built with a tendency towards a game developers vision,
+                    being the mechanical aspects of a traditional game such as combat and conquest. However in my mind,
+                    the
+                    liveliness of MMORPGs are present in the organic interactions between players, as people living in a
+                    world. One such interaction is of course, "roleplaying".
+                </p>
+            </div>
+
+            <div class="content-container span7">
+                <figure class="content-figure">
+                    <img class="content-figure-img" src="assets/images/mmolife1.jpg"
+                        alt='roleplaying at a quiet beach in Final Fantasy 14 Online'>
+                    <figcaption class="content-figure-caption p1">Roleplaying at a quiet beach in Final Fantasy XIV
+                        Online
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="content-container content-text span7">
+                <p class="p1">
+                    In the context of MMORPG discussion, the act of "roleplaying" refers typically to roleplaying
+                    between player characters rather than between the player and the world's stories, not unlike
+                    traditional tabletop roleplaying games, utilising the game world and character creation systems as
+                    a backdrop.
+                    <br><br>
+                </p>
+                <p class="p4">
+                    "...no matter how many quests and dungeons these games offer, they all seem to have a sizeable
+                    community of roleplayers nonchalantly inhabiting their characters and doing their own thing" -
+                    Perry, A.
+                </p>
+            </div>
+
+            <div class="content-container content-text span3">
+                <p class="p1">
+                    From full character arcs, to weddings, to quiet nights at a queer bar, roleplaying allows an
+                    extension of the personal expression in character creation, moreso than the predefined world and
+                    stories of MMORPGs. Players form their own stories and scenarios entirely of their own will, feeding
+                    back into the whole immersive experience.
+                    <br><br>
+                </p>
+            </div>
+
+            <div class="content-container span4">
+                <figure class="content-figure">
+                    <img class="content-figure-img" src="assets/images/mmolife2.jpg"
+                        alt='A wedding in Final Fantasy 14 Online'>
+                    <figcaption class="content-figure-caption p1">A wedding in Final Fantasy XIV Online
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="content-container content-text span7">
+                <p class="p1">
+                    While these interactions will never be a replacement for the physical world, the life and
+                    experiences roleplaying has afforded me has allowed me to experience countless things, and make
+                    numerous friends with kindred spirits under the anonymity of the avatar. The culmination of these
+                    aspects in MMORPG's is thus what sparked my passion for the concept, and an appreciation of the
+                    anthropological possibilities of such technology.
+                    <br><br>
+                    And so it is when corporations such as Meta (formerly Facebook) advertise shiny corporate
+                    distillations of virtual worlds, drained of the colour and agency of so many services- such as
+                    MMORPGs, that have come before, and are brought into the mainstream zeitgeist as idealisations of
+                    the future, I feel an urge to shake someone and show them the possibilities long present, and the
+                    numerous marginalised communities and people that have long pioneered the virtual world.
+                    <br><br>
+                </p>
+                <p class="p4 p-link" onclick="navEntry('sub_reference', event)">
+                    SEE SITE SOURCES >>
+                </p>
+            </div>
+        </main>
+    </div>
+    <footer class="footer">
+        <p class="p1 p1-3">
+            Site by Wil "Iris" Li, with content based on Wikipedia and <span class="p-link"
+                onclick="navEntry('sub_reference', event)">additional sources</span>.
+            <br>
+            Made for UTS 87539 VC Designing Interactions: Webmedia 2021 on unceded Dharawal Land.
+        </p>
+    </footer>
+</body>
+
+<div class="scripts">
+    <script src="getelement.js"></script>
+    <script src="loader.js"></script>
+    <script src="chat.js"></script>
+    <script src="avatar.js"></script>
+    <script src="interact.js"></script>
+</div>
+
+</html>

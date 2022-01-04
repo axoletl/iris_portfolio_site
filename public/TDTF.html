@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" id="sub" class="theme-dark">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <script src="https://player.vimeo.com/api/player.js"></script>
+</head>
+
+<body class="iframebody debug preload">
+    <div class="grid3 debug">
+
+        <div class="gcont3 start1 span2">
+            <div class="backbutton scale2" onclick="parent.iframeUnfocus(event)">
+                <p class="p1">
+                    << Back</p>
+            </div>
+        </div>
+
+        <div class="gcont3 start1 span14 border1">
+            <!-- VIDEO -->
+            <div style="padding:56.25% 0 0 0;position:relative;background-color: black;"><iframe id="vid"
+                    src="https://player.vimeo.com/video/662162060?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                    frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                    title="Darkness Full of Light"></iframe></div>
+            <!-- script to stop video -->
+            <script>
+                setInterval(function () {
+                    var body = document.getElementById("sub");
+                    var vid = document.getElementById("vid");
+                    var player = new Vimeo.Player(vid); /*convert to player*/
+
+                    //    console.log(body.clientHeight);
+                    if (body.clientHeight <= 10) {
+                        player.pause();
+                        // console.log(1);
+                    }
+                }, 500);
+            </script>
+        </div>
+
+        <div class="gcont3 start1 span7">
+            <p class="p1 p4">
+                The Think+DO Tank Foundation Impact Tool is a data visualisation tool created for the Think+DO Tank
+                Foundation to visualise their work and impact on their community. The interaction of the tool focuses on
+                three unique data visualisation pillars representing three core pillars of Think+DO Tank's branding:
+                'Power', 'Connection' and 'Possibility'.
+                <br><br>
+                The tool also links to existing Youtube and Vimeo video media
+                to incorporate and include community testimonial in the visualisation. All of this is powered by a
+                custom backend system that allows for expansion and live data updates via Google Sheets.
+                <br><br>
+                A live demo of the tool can be seen <a href="https://thinkanddotank.neocities.org/"
+                    target="_blank">here</a>.
+            </p>
+        </div>
+
+        <div class="gcont3 span7">
+            <p class="p1 p4">
+                The tool was made by Dimpal Makwana, Eloise Myatt, Jane Hoang and I in collaboration with Think+DO Tank
+                as part of UTS VC Socially Responsive Design 2020. I was involved with the Javascript and P5.js
+                programming, as well as the data visualisation and structure refinement.
+            </p>
+        </div>
+
+        <div class="gcont3 span7">
+            <img class="border1" src="assets/TDTF.gif" alt="">
+        </div>
+
+        <div class="gcont3 span7 border1">
+            <img class="border1" src="assets/TDTF2.png" alt="">
+        </div>
+
+        <div class="gcont3 start1 span7">
+            <p class="p1 p4">
+                Each screen of the visualisation transitions seamlessly in and out of focus of a complete picture,
+                representational of the work of Think+DO Tank. Scenes are created generatively based on data fed into
+                the system.
+            </p>
+        </div>
+
+        <div class="gcont3 span7">
+            <p class="p1 p4">
+                We went through an extensive iteration phase, rapidly and collaboratively refining designs in the time
+                we had over mindmapping systems such as Miro. Though we each had specialised skills, we all took part in
+                the core concept and mockup design process.
+            </p>
+        </div>
+
+        <hr class="span14">
+
+        <div class="gcont3 start1 span2">
+            <div class="backbutton scale2" onclick="parent.iframeUnfocus(event)">
+                <p class="p1">
+                    << Back</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
