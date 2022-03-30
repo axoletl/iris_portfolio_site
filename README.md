@@ -1,1 +1,1 @@
-private repo for iris-is.me / iris-vis.neocities.com
+repo for iris-is.me / iris-vis.neocities.com
